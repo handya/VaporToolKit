@@ -6,17 +6,18 @@
 //
 
 import Vapor
+import Fluent
 import FluentPostgresDriver
 
 public extension Content {
-    public static func rawQueryAll<T: Content>(_ query: String, on req: Request) -> EventLoopFuture<[T]> {
+    static func rawQueryAll<T: Content>(_ query: String, on req: Request) -> EventLoopFuture<[T]> {
         guard let sqldb = req.db as? SQLDatabase else {
             return req.eventLoop.makeFailedFuture(Abort(.internalServerError))
         }
         return sqldb.raw(SQLQueryString(query)).all(decoding: T.self)
     }
 
-    public static func rawQueryFirst<T: Content>(_ query: String, on req: Request) -> EventLoopFuture<T?> {
+    static func rawQueryFirst<T: Content>(_ query: String, on req: Request) -> EventLoopFuture<T?> {
         guard let sqldb = req.db as? SQLDatabase else {
             return req.eventLoop.makeFailedFuture(Abort(.internalServerError))
         }
