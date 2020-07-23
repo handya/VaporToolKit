@@ -22,4 +22,13 @@ public extension Content {
         }
         return sqldb.raw(SQLQueryString(query)).first(decoding: Self.self)
     }
+
+    static func rawQueryExists(_ query: String, on db: Database) -> EventLoopFuture<Bool> {
+        guard let sqldb = db as? SQLDatabase else {
+            return db.eventLoop.makeFailedFuture(Abort(.internalServerError))
+        }
+        return sqldb.raw(SQLQueryString(query))
+            .first(decoding: Self.self)
+            .map { $0 != nil }
+    }
 }
