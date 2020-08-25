@@ -31,4 +31,11 @@ public extension Content {
             .first(decoding: Self.self)
             .map { $0 != nil }
     }
+
+    static func runRawQuery(_ query: String, on db: Database) -> EventLoopFuture<Void> {
+        guard let sqldb = db as? SQLDatabase else {
+            return db.eventLoop.makeFailedFuture(Abort(.internalServerError))
+        }
+        return sqldb.raw(SQLQueryString(query)).run()
+    }
 }
