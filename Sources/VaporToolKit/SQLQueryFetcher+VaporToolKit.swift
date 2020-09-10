@@ -9,7 +9,6 @@
 import FluentPostgresDriver
 
 public extension SQLQueryFetcher {
-
     func first<A, B>(decoding: A.Type, _ b: B.Type) -> EventLoopFuture<(A, B)?> where A: Decodable, B: Decodable {
         self.first().flatMapThrowing {
             guard let row = $0 else {

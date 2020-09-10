@@ -9,7 +9,7 @@ import NIO
 
 /// Author: vzsg (Discord) - https://twitter.com/vzsg_dev
 /// Source: https://discordapp.com/channels/431917998102675485/684159753189982218/684537099378098272
-extension EventLoopFuture {
+public extension EventLoopFuture {
     func tryFlatMap<NewValue>(file: StaticString = #file,
                               line: UInt = #line,
                               _ callback: @escaping (Value) throws -> EventLoopFuture<NewValue>) -> EventLoopFuture<NewValue> {
