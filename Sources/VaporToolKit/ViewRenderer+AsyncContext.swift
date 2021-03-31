@@ -8,8 +8,7 @@
 import Vapor
 
 public extension ViewRenderer {
-    func render<E>(_ name: String,
-                          _ context: EventLoopFuture<E>) -> EventLoopFuture<View> where E: Encodable {
+    func render<E>(_ name: String, _ context: EventLoopFuture<E>) -> EventLoopFuture<View> where E: Encodable {
         context.flatMap { context in
             self.render(name, context)
         }
