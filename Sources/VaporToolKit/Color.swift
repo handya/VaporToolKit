@@ -17,6 +17,10 @@ public struct Color: Content {
             self.value = String.hash + hex
         }
     }
+
+    public var rawHexValue: String {
+        return value
+    }
 }
 
 public extension Color {
@@ -60,6 +64,9 @@ public extension Color {
     static let systemRed: Color = .init("FF3B30")
     static let systemTeal: Color = .init("5AC8FA")
     static let systemYellow: Color = .init("FFCC00")
+    static let systemMint: Color = .init("00C7BE")
+    static let systemCyan: Color = .init("32ADE6")
+    static let systemBrown: Color = .init("A2845E")
     static let systemGray: Color = .init("8E8E93")
     static let systemGray2: Color = .init("AEAEB2")
     static let systemGray3: Color = .init("C7C7CC")
