@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "VaporToolKit",
     platforms: [
-       .macOS(.v10_15)
+       .macOS(.v12)
     ],
     products: [
         .library(
@@ -14,7 +14,7 @@ let package = Package(
             targets: ["VaporToolKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.48.7"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.55.3"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.3.1"),
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.2.0")
     ],
