@@ -14,9 +14,9 @@ let package = Package(
             targets: ["VaporToolKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.55.3"),
-        .package(url: "https://github.com/vapor/fluent.git", from: "4.3.1"),
-        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.2.0")
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.69.1"),
+        .package(url: "https://github.com/vapor/fluent.git", from: "4.6.0"),
+        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.5.0")
     ],
     targets: [
         .target(
