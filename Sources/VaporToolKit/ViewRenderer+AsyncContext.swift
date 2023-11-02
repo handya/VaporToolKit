@@ -13,4 +13,8 @@ public extension ViewRenderer {
             self.render(name, context)
         }
     }
+
+    func render<E>(_ name: String, _ context: EventLoopFuture<E>) async throws -> View where E: Encodable {
+        return try await render(name, context).get()
+    }
 }

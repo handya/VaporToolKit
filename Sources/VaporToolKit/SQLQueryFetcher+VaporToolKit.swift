@@ -9,6 +9,7 @@
 import FluentPostgresDriver
 
 public extension SQLQueryFetcher {
+    @available(*, deprecated)
     func first<A, B>(decoding: A.Type, _ b: B.Type) -> EventLoopFuture<(A, B)?> where A: Decodable, B: Decodable {
         self.first().flatMapThrowing {
             guard let row = $0 else {
@@ -20,6 +21,7 @@ public extension SQLQueryFetcher {
         }
     }
 
+    @available(*, deprecated)
     func first<A, B, C>(decoding: A.Type, _ b: B.Type, _ c: C.Type) -> EventLoopFuture<(A, B, C)?> where A: Decodable, B: Decodable, C: Decodable {
         self.first().flatMapThrowing {
             guard let row = $0 else {
@@ -32,6 +34,7 @@ public extension SQLQueryFetcher {
         }
     }
 
+    @available(*, deprecated)
     func all<A, B>(decoding: A.Type, _ b: B.Type) -> EventLoopFuture<[(A, B)]> where A: Decodable, B: Decodable {
         self.all().flatMapThrowing {
             try $0.map {
@@ -42,6 +45,7 @@ public extension SQLQueryFetcher {
         }
     }
 
+    @available(*, deprecated)
     func all<A, B, C>(decoding: A.Type, _ b: B.Type, _ c: C.Type) -> EventLoopFuture<[(A, B, C)]> where A: Decodable, B: Decodable, C: Decodable {
         self.all().flatMapThrowing {
             try $0.map {

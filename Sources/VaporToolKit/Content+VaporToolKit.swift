@@ -20,10 +20,12 @@ public extension Content {
         return sqldb.raw(SQLQueryString(query)).all(decoding: Self.self)
     }
 
+    @available(*, deprecated)
     static func rawQueryAll<A>(_ query: String, alsoDecode: A.Type, on db: Database) async throws -> [(Self, A)] where A: Decodable {
         return try await rawQueryAll(query, alsoDecode: A.self, on: db).get()
     }
 
+    @available(*, deprecated)
     static func rawQueryAll<A>(_ query: String, alsoDecode: A.Type, on db: Database) -> EventLoopFuture<[(Self, A)]> where A: Decodable {
         guard let sqldb = db as? SQLDatabase else {
             return db.eventLoop.makeFailedFuture(Abort(.internalServerError))
@@ -42,10 +44,12 @@ public extension Content {
         return sqldb.raw(SQLQueryString(query)).first(decoding: Self.self)
     }
 
+    @available(*, deprecated)
     static func rawQueryFirst<A>(_ query: String, alsoDecode: A.Type, on db: Database) async throws -> (Self, A)? where A: Decodable {
         return try await rawQueryFirst(query, alsoDecode: A.self, on: db).get()
     }
 
+    @available(*, deprecated)
     static func rawQueryFirst<A>(_ query: String, alsoDecode: A.Type, on db: Database) -> EventLoopFuture<(Self, A)?> where A: Decodable {
         guard let sqldb = db as? SQLDatabase else {
             return db.eventLoop.makeFailedFuture(Abort(.internalServerError))
