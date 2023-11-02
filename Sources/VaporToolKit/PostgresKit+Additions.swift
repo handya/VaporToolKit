@@ -7,7 +7,7 @@
 
 import PostgresKit
 
-extension Error {
+public extension Error {
     func isConstraintError(_ constraintName: String) -> Bool {
         if let postgresError = self as? PostgresError,
            case .server(let error) = postgresError,

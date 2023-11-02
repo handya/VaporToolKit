@@ -7,7 +7,7 @@
 
 import Vapor
 
-extension ByteBuffer {
+public extension ByteBuffer {
     var stringValue: String? {
         guard let data = self.getData(at: self.readerIndex, length: self.readableBytes) else {
             return nil
